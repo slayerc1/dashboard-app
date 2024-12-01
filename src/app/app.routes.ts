@@ -58,6 +58,18 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'inputs-outputs',
+        title: 'Inputs Outputs',
+        loadComponent: () =>
+          import('./dashboard/pages/input-output/input-output.component'),
+      },
+      {
+        path: 'material',
+        title: 'Angular Material',
+        loadComponent: () =>
+          import('./dashboard/pages/material/material.component'),
+      },
+      {
         path: '',
         redirectTo: 'control-flow',
         pathMatch: 'full',
@@ -66,7 +78,12 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    // redirectTo: '/dashboard',
+    redirectTo: (route) => {
+      // console.log(route);
+      // podemos usar funciones e injecion de servicios aqui
+      return '/dashboard/material';
+    },
     pathMatch: 'full',
   },
 ];
